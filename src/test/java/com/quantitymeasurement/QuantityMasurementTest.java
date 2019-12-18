@@ -224,9 +224,4 @@ public class QuantityMasurementTest {
         double add = val1.add(val2);
         Assert.assertNotEquals(2.0,add);
     }
-
-
-
-
-
 }

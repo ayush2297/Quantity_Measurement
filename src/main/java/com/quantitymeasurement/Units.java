@@ -1,28 +1,37 @@
 package com.quantitymeasurement;
 public enum Units {
-    FEET(12),INCHES(1),YARD(36),CM(1/2.5),
-    GALLON(3.78),LITRE(1), ML(1d/1000);
+    FEET(12,UnitCategory.LENGTH),INCHES(1,UnitCategory.LENGTH),
+    YARD(36,UnitCategory.LENGTH),CM(1/2.5,UnitCategory.LENGTH),
+    GALLON(3.78,UnitCategory.VOLUME),LITRE(1,UnitCategory.VOLUME),
+    ML(1d/1000,UnitCategory.VOLUME);
 
     public final double baseConversionUnit;
+    private final UnitCategory unitType;
 
-    Units(double baseConversionUnit) {
+    Units(double baseConversionUnit, UnitCategory category) {
         this.baseConversionUnit = baseConversionUnit;
+        this.unitType = category;
     }
 
     private static double getVal(Length lenObj) {
-        double v = lenObj.unit.baseConversionUnit*lenObj.value;
-        return v;
+        return lenObj.unit.baseConversionUnit*lenObj.value;
     }
 
     public static boolean compare (Length lenObj1, Length lenObj2) {
-        Long firstVal = Math.round(getVal(lenObj1));
-        Long secondVal = Math.round(getVal(lenObj2));
-        return firstVal.equals(secondVal);
+        if (lenObj1.unit.unitType.equals(lenObj2.unit.unitType)) {
+            Long firstVal = Math.round(getVal(lenObj1));
+            Long secondVal = Math.round(getVal(lenObj2));
+            return firstVal.equals(secondVal);
+        }
+        return false;
     }
 
     public static double add(Length lenObj1, Length lenObj2) {
-        double firstVal = getVal(lenObj1);
-        double secondVal = getVal(lenObj2);
-        return firstVal+secondVal;
+        if (lenObj1.unit.unitType.equals(lenObj2.unit.unitType)) {
+            double firstVal = getVal(lenObj1);
+            double secondVal = getVal(lenObj2);
+            return firstVal+secondVal;
+        }
+        return 0;
     }
 }
