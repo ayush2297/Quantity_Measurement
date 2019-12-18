@@ -17,8 +17,12 @@ public enum Units {
         return lenObj.unit.baseConversionUnit*lenObj.value;
     }
 
+    private static boolean typeEquals(Length lenObj1, Length lenObj2) {
+        return lenObj1.unit.unitType.equals(lenObj2.unit.unitType);
+    }
+
     public static boolean compare (Length lenObj1, Length lenObj2) {
-        if (lenObj1.unit.unitType.equals(lenObj2.unit.unitType)) {
+        if (typeEquals(lenObj1,lenObj2)) {
             Long firstVal = Math.round(getVal(lenObj1));
             Long secondVal = Math.round(getVal(lenObj2));
             return firstVal.equals(secondVal);
