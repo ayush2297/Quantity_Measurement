@@ -4,18 +4,18 @@ public class LengthUnits {
 
     public enum UnitType {
         FEET {
-            public double getUnitVal(double value){
+            public double getValInInches(double value){
                 return value*12.0;
             }
         }, INCHES {
-            public double getUnitVal(double value){
+            public double getValInInches(double value){
                 return value;
             }
+        }, YARD {
+            public double getValInInches(double value){
+                return value*36;
+            }
         };
-        public abstract double getUnitVal(double value);
-    }
-
-    public static double getUnitVal(UnitType unitType, double value){
-        return unitType.getUnitVal(value);
+        public abstract double getValInInches(double value);
     }
 }

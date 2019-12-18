@@ -11,8 +11,8 @@ public class Length {
     }
 
     public boolean compare(Length that) {
-        Double firstVal = this.unit.getUnitVal(this.value);
-        Double secondVal = that.unit.getUnitVal(that.value);
+        Long firstVal = Math.round(this.unit.getValInInches(this.value));
+        Long secondVal = Math.round(that.unit.getValInInches(that.value));
         return firstVal.equals(secondVal);
     }
 

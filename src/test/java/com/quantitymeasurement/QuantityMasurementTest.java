@@ -104,4 +104,52 @@ public class QuantityMasurementTest {
         boolean compareCheck = inch1.compare(inch2);
         Assert.assertTrue(compareCheck);
     }
+
+    @Test
+    public void givenThreeFeetAndOneYard_ShouldReturnEqualLength() {
+        Length feet = new Length(LengthUnits.UnitType.FEET, 3.0);
+        Length yard = new Length(LengthUnits.UnitType.YARD, 1.0);
+        boolean compareCheck = feet.compare(yard);
+        Assert.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void given36InchesAndOneYard_ShouldReturnEqualLength() {
+        Length inches = new Length(LengthUnits.UnitType.INCHES, 36.0);
+        Length yard = new Length(LengthUnits.UnitType.YARD, 1.0);
+        boolean compareCheck = inches.compare(yard);
+        Assert.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void given1YardAnd36Inches_ShouldReturnEqualLength() {
+        Length yard = new Length(LengthUnits.UnitType.YARD, 1.0);
+        Length inches = new Length(LengthUnits.UnitType.INCHES, 36.0);
+        boolean compareCheck = yard.compare(inches);
+        Assert.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void givenOneYardAndThreeFeet_ShouldReturnEqualLength() {
+        Length yard = new Length(LengthUnits.UnitType.YARD, 1.0);
+        Length feet = new Length(LengthUnits.UnitType.FEET, 3.0);
+        boolean compareCheck = yard.compare(feet);
+        Assert.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void givenOneFeetAndOneYard_ShouldReturnEqualLength() {
+        Length feet = new Length(LengthUnits.UnitType.FEET, 1.0);
+        Length yard = new Length(LengthUnits.UnitType.YARD, 1.0);
+        boolean compareCheck = feet.compare(yard);
+        Assert.assertFalse(compareCheck);
+    }
+
+    @Test
+    public void givenOneInchAndOneYard_ShouldReturnEqualLength() {
+        Length inch = new Length(LengthUnits.UnitType.INCHES, 1.0);
+        Length yard = new Length(LengthUnits.UnitType.YARD, 3.0);
+        boolean compareCheck = inch.compare(yard);
+        Assert.assertFalse(compareCheck);
+    }
 }
