@@ -1,17 +1,19 @@
 package com.quantitymeasurement;
 
+import java.util.Objects;
+
 public class Length {
 
     public double value;
-    public final LengthUnits.UnitType unit;
+    public final Units unit;
 
-    public Length(LengthUnits.UnitType unit, double value) {
+    public Length(Units unit, double value) {
         this.value=value;
         this.unit = unit;
     }
 
     public boolean compare(Length that) {
-        return LengthUnits.compare(this,that);
+        return Units.compare(this,that);
     }
 
     @Override
@@ -22,4 +24,5 @@ public class Length {
         return Double.compare(length.value, value) == 0 &&
                 unit == length.unit;
     }
+
 }
