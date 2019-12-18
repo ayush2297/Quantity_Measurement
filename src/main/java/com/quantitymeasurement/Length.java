@@ -2,18 +2,16 @@ package com.quantitymeasurement;
 
 public class Length {
 
-    private final LengthUnits.UnitType unit;
     public double value;
+    public final LengthUnits.UnitType unit;
 
     public Length(LengthUnits.UnitType unit, double value) {
-        this.value = value;
+        this.value=value;
         this.unit = unit;
     }
 
     public boolean compare(Length that) {
-        Long firstVal = Math.round(this.unit.getValInInches(this.value));
-        Long secondVal = Math.round(that.unit.getValInInches(that.value));
-        return firstVal.equals(secondVal);
+        return LengthUnits.compare(this,that);
     }
 
     @Override
@@ -24,5 +22,4 @@ public class Length {
         return Double.compare(length.value, value) == 0 &&
                 unit == length.unit;
     }
-
 }
