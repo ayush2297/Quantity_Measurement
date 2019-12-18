@@ -14,6 +14,10 @@ public class Length {
         return Units.compare(this,that);
     }
 
+    public double add(Length value) {
+        return Units.add(this,value);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -23,7 +27,4 @@ public class Length {
                 unit == length.unit;
     }
 
-    public double add(Length value) {
-        return Units.add(this,value);
-    }
 }
