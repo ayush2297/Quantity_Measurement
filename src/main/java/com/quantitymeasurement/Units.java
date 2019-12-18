@@ -3,7 +3,8 @@ public enum Units {
     FEET(12,UnitCategory.LENGTH),INCHES(1,UnitCategory.LENGTH),
     YARD(36,UnitCategory.LENGTH),CM(1/2.5,UnitCategory.LENGTH),
     GALLON(3.78,UnitCategory.VOLUME),LITRE(1,UnitCategory.VOLUME),
-    ML(1d/1000,UnitCategory.VOLUME);
+    ML(1d/1000,UnitCategory.VOLUME),KG(1000,UnitCategory.WEIGHT),
+    GRAM(1,UnitCategory.WEIGHT);
 
     public final double baseConversionUnit;
     private final UnitCategory unitType;

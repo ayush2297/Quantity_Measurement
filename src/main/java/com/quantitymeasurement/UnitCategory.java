@@ -1,5 +1,5 @@
 package com.quantitymeasurement;
 
 public enum UnitCategory {
-    LENGTH,VOLUME;
+    LENGTH,VOLUME,WEIGHT
 }

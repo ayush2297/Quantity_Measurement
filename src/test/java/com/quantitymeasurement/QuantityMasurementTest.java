@@ -194,6 +194,14 @@ public class QuantityMasurementTest {
     }
 
     @Test
+    public void givenOneLitreAnd1000ml_ShouldReturnAdditionOfBoth() {
+        Length val1 = new Length(Units.LITRE,1.0);
+        Length val2 = new Length(Units.ML, 1000.0);
+        double add = val1.add(val2);
+        Assert.assertEquals(2,add,0.0);
+    }
+
+    @Test
     public void givenOneGallonAndLitre_ShouldReturnReturnTrue() {
         Length val1 = new Length(Units.GALLON,1.0);
         Length val2 = new Length(Units.LITRE, 3.78);
@@ -224,4 +232,16 @@ public class QuantityMasurementTest {
         double add = val1.add(val2);
         Assert.assertNotEquals(2.0,add);
     }
+
+    @Test
+    public void givenOneKgAnd1000gm_ShouldReturnTrue() {
+        Length val1 = new Length(Units.KG,1.0);
+        Length val2 = new Length(Units.GRAM, 1000.0);
+        boolean compareCheck = val1.compare(val2);
+        Assert.assertTrue(compareCheck);
+    }
+
+
+
+
 }
