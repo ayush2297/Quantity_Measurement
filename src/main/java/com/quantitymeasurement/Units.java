@@ -9,8 +9,18 @@ public enum Units {
     }
 
     public static boolean compare (Length lenObj1, Length lenObj2) {
-        Long firstVal = Math.round(lenObj1.unit.baseConversionUnit*lenObj1.value);
-        Long secondVal = Math.round(lenObj2.unit.baseConversionUnit*lenObj2.value);
+        Long firstVal = getVal(lenObj1);
+        Long secondVal = getVal(lenObj2);
         return firstVal.equals(secondVal);
+    }
+
+    public static double add(Length lenObj1, Length lenObj2) {
+        Long firstVal = getVal(lenObj1);
+        Long secondVal = getVal(lenObj2);
+        return firstVal+secondVal;
+    }
+
+    private static Long getVal(Length lenObj) {
+        return Math.round(lenObj.unit.baseConversionUnit*lenObj.value);
     }
 }

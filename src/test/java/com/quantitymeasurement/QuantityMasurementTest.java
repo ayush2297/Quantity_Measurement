@@ -154,11 +154,43 @@ public class QuantityMasurementTest {
     }
 
     @Test
-    public void givenOneInchAndOneYard1_ShouldReturnNotEqualLength() {
+    public void givenOneInchAndOneCm_ShouldReturnNotEqualLength() {
         Length inch = new Length(Units.INCHES,2.0);
-        Length yard = new Length(Units.CM, 5.0);
-        boolean compareCheck = inch.compare(yard);
+        Length cm = new Length(Units.CM, 5.0);
+        boolean compareCheck = inch.compare(cm);
         Assert.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void givenOneInchAndOneCm_ShouldReturnAdditionOfBothInInches() {
+        Length inch = new Length(Units.INCHES,2.0);
+        Length cm = new Length(Units.CM, 5.0);
+        double add = inch.add(cm);
+        Assert.assertEquals(4,add,0.0);
+    }
+
+    @Test
+    public void givenOneFeetAndTwoInches_ShouldReturnAdditionOfBothInInches() {
+        Length feet = new Length(Units.FEET,1.0);
+        Length inches = new Length(Units.INCHES, 2.0);
+        double add = feet.add(inches);
+        Assert.assertEquals(14,add,0.0);
+    }
+
+    @Test
+    public void givenOneFeetAndOneFeet_ShouldReturnAdditionOfBothInInches() {
+        Length feet1 = new Length(Units.FEET,1.0);
+        Length feet2 = new Length(Units.FEET, 1.0);
+        double add = feet1.add(feet2);
+        Assert.assertEquals(24,add,0.0);
+    }
+
+    @Test
+    public void givenTwoInchAndTwoHalfCm_ShouldReturnAdditionOfBothInInches() {
+        Length val1 = new Length(Units.INCHES,2.0);
+        Length val2 = new Length(Units.CM, 2.5);
+        double add = val1.add(val2);
+        Assert.assertEquals(3,add,0.0);
     }
 
 }

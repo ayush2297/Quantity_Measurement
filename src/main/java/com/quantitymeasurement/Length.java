@@ -1,7 +1,5 @@
 package com.quantitymeasurement;
 
-import java.util.Objects;
-
 public class Length {
 
     public double value;
@@ -25,4 +23,7 @@ public class Length {
                 unit == length.unit;
     }
 
+    public double add(Length value) {
+        return Units.add(this,value);
+    }
 }
