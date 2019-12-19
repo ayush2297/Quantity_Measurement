@@ -1,20 +1,20 @@
 package com.quantitymeasurement;
 
-public class Length {
+public class QuantityMeasurements {
 
     public double value;
     public final Units unit;
 
-    public Length(Units unit, double value) {
+    public QuantityMeasurements(Units unit, double value) {
         this.value=value;
         this.unit = unit;
     }
 
-    public boolean compare(Length that) {
+    public boolean compare(QuantityMeasurements that) {
         return Units.compare(this,that);
     }
 
-    public double add(Length value) {
+    public double add(QuantityMeasurements value) {
         return Units.add(this,value);
     }
 
@@ -22,9 +22,9 @@ public class Length {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Length length = (Length) o;
-        return Double.compare(length.value, value) == 0 &&
-                unit == length.unit;
+        QuantityMeasurements quantityMeasurements = (QuantityMeasurements) o;
+        return Double.compare(quantityMeasurements.value, value) == 0 &&
+                unit == quantityMeasurements.unit;
     }
 
 }
