@@ -4,7 +4,8 @@ public enum Units {
     YARD(36,UnitCategory.LENGTH),CM(1/2.5,UnitCategory.LENGTH),
     GALLON(3.78,UnitCategory.VOLUME),LITRE(1,UnitCategory.VOLUME),
     ML(1d/1000,UnitCategory.VOLUME),KG(1,UnitCategory.WEIGHT),
-    GRAM(1d/1000,UnitCategory.WEIGHT),TONNE(1000,UnitCategory.WEIGHT);
+    GRAM(1d/1000,UnitCategory.WEIGHT),TONNE(1000,UnitCategory.WEIGHT),
+    CELCIUS(2.12,UnitCategory.TEMPERATURE),FAHRENHEIT(1,UnitCategory.TEMPERATURE);
 
     public final double baseConversionUnit;
     private final UnitCategory unitType;

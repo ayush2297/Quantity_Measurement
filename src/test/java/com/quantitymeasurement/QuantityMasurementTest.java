@@ -283,4 +283,5 @@ public class QuantityMasurementTest {
         boolean compareCheck = val1.equals(val2);
         Assert.assertFalse(compareCheck);
     }
+
 }

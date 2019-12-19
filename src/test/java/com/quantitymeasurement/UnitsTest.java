@@ -222,4 +222,20 @@ public class UnitsTest {
         double add = add(val1,val2);
         Assert.assertNotEquals(1001.0,add,0.0);
     }
+
+    @Test
+    public void givenOneDegreeCAnd1DegreeC_ShouldReturnTrue() {
+        QuantityMeasurements val1 = new QuantityMeasurements(Units.CELCIUS,1.0);
+        QuantityMeasurements val2 = new QuantityMeasurements(Units.CELCIUS, 1.0);
+        boolean compareCheck = compare(val1,val2);
+        Assert.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void givenOneDegreeCelciusAnd2FahrenheitC_ShouldReturnTrue() {
+        QuantityMeasurements val1 = new QuantityMeasurements(Units.CELCIUS,1.0);
+        QuantityMeasurements val2 = new QuantityMeasurements(Units.FAHRENHEIT, 2.12);
+        boolean compareCheck = compare(val1,val2);
+        Assert.assertTrue(compareCheck);
+    }
 }
