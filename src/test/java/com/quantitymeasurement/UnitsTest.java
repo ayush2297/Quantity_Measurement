@@ -89,25 +89,25 @@ public class UnitsTest {
 
     @Test
     public void givenOneInchAndOneYard_ShouldReturnNotEqualLength() {
-        QuantityMeasurements inch = new QuantityMeasurements(Units.INCHES, 1.0);
+        QuantityMeasurements val1 = new QuantityMeasurements(Units.INCHES, 1.0);
         QuantityMeasurements val2 = new QuantityMeasurements(Units.YARD, 1.0);
-        boolean compareCheck = inch.compare(val2);
+        boolean compareCheck = compare(val1,val2);
         Assert.assertFalse(compareCheck);
     }
 
     @Test
     public void givenOneInchAndOneCm_ShouldReturnNotEqualLength() {
-        QuantityMeasurements inch = new QuantityMeasurements(Units.INCHES,2.0);
-        QuantityMeasurements cm = new QuantityMeasurements(Units.CM, 5.0);
-        boolean compareCheck = inch.compare(cm);
+        QuantityMeasurements val1 = new QuantityMeasurements(Units.INCHES,2.0);
+        QuantityMeasurements val2 = new QuantityMeasurements(Units.CM, 5.0);
+        boolean compareCheck = compare(val1,val2);
         Assert.assertTrue(compareCheck);
     }
 
     @Test
     public void givenOneInchAndOneCm_ShouldReturnAdditionOfBothInInches() {
-        QuantityMeasurements inch = new QuantityMeasurements(Units.INCHES,2.0);
-        QuantityMeasurements cm = new QuantityMeasurements(Units.CM, 5.0);
-        double add = inch.add(cm);
+        QuantityMeasurements val1 = new QuantityMeasurements(Units.INCHES,2.0);
+        QuantityMeasurements val2 = new QuantityMeasurements(Units.CM, 5.0);
+        double add = add(val1,val2);
         Assert.assertEquals(4,add,0.0);
     }
 

@@ -261,7 +261,7 @@ public class QuantityMasurementTest {
     }
 
     @Test
-    public void givenOneTonneAnd1000Gmams_ShouldReturnAdditionOfBoth() {
+    public void givenOneTonneAnd1000Grams_ShouldReturnAdditionOfBoth() {
         QuantityMeasurements val1 = new QuantityMeasurements(Units.TONNE,1.0);
         QuantityMeasurements val2 = new QuantityMeasurements(Units.GRAM, 1000.0);
         double add = val1.add(val2);
@@ -277,7 +277,7 @@ public class QuantityMasurementTest {
     }
 
     @Test
-    public void givenOneTonneAnd1000KgsInEquals_ShouldReturnTrue() {
+    public void givenOneTonneAndNullInEquals_ShouldReturnTrue() {
         QuantityMeasurements val1 = new QuantityMeasurements(Units.TONNE,1.0);
         QuantityMeasurements val2 = null;
         boolean compareCheck = val1.equals(val2);
